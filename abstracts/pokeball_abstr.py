@@ -2,12 +2,11 @@ from abc import ABC, abstractmethod
 import random
 
 from pokemon_abstr import PokemonAbstr
-from pokeball_abstr import PokeballAbstr
 from pokeballType_abstr import PokeballTypeAbstr
 
 class PokeballAbstr:
     pokemon_inside: PokemonAbstr
-    type: PokeballAbstr
+    type: PokeballTypeAbstr
     
     @abstractmethod
     def __init__(self, type: PokeballTypeAbstr):
@@ -26,4 +25,7 @@ class PokeballAbstr:
         pass
     @abstractmethod
     def empty(self):
+        pass
+    @abstractmethod
+    def __str__(self):
         pass

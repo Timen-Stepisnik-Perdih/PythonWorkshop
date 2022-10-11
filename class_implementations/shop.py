@@ -10,14 +10,14 @@ from pokeball import Pokeball
 class Shop(ShopAbstr):
     pokemon_cost = 20
     
-    def buyPokeball(self, type: PokeballTypeAbstr, trainer: TrainerAbstr) -> bool:
+    def buy_pokeball(self, type: PokeballTypeAbstr, trainer: TrainerAbstr) -> bool:
         if trainer.money < type.cost:
             return False
         trainer.money -= type.cost
         trainer.pokeballs.append(Pokeball(type))
         return True
     
-    def sellPokemon(self, pokeball: PokeballAbstr, trainer: TrainerAbstr) -> bool:
+    def sell_pokemon(self, pokeball: PokeballAbstr, trainer: TrainerAbstr) -> bool:
         if pokeball.is_empty():
             return False
         trainer.money += self.pokemon_cost

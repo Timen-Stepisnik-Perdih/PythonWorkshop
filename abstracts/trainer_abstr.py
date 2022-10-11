@@ -19,3 +19,7 @@ class TrainerAbstr:
     @abstractmethod
     def ready_pokeball(self) -> PokeballAbstr:
         pass
+    
+    @abstractmethod
+    def __str__(self):
+        pass

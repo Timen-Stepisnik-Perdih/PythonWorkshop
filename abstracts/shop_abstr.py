@@ -5,8 +5,8 @@ from trainer_abstr import TrainerAbstr
 
 class ShopAbstr:
     @abstractmethod
-    def buyPokeball(self, type: PokeballTypeAbstr, trainer: TrainerAbstr) -> bool:
+    def buy_pokeball(self, type: PokeballTypeAbstr, trainer: TrainerAbstr) -> bool:
         pass
     @abstractmethod
-    def sellPokemon(self, pokeball: PokeballAbstr, trainer: TrainerAbstr) -> bool:
+    def sell_pokemon(self, pokeball: PokeballAbstr, trainer: TrainerAbstr) -> bool:
         pass

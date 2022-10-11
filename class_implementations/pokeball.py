@@ -17,7 +17,7 @@ class Pokeball(PokeballAbstr):
         return False
     
     def is_empty(self) -> bool:
-        return self.pokemon_inside is not None
+        return self.pokemon_inside is None
     
     def add_pokemon(self, pokemon):
         self.pokemon_inside = pokemon
@@ -27,3 +27,11 @@ class Pokeball(PokeballAbstr):
     
     def empty(self):
         self.pokemon_inside = None
+        
+    def __str__(self):
+        return_string = ""
+        if self.is_empty():
+            return_string += "Empty " + self.type.name + " ball \n"
+        else:
+            return_string += self.pokemon_inside.__str__() + "\n"
+        return return_string

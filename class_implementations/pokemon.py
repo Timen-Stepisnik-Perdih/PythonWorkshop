@@ -31,19 +31,23 @@ class Pokemon(PokemonAbstr):
         else:
             print(f"{self.name} is full.")
 
-    def battle(self, other):
+    def battle(self, other) -> bool:
         result = self.typewheel(self.primary_type, other.primary_type)
         if result == 'lose':
             self.hp = 0
             print(f"{self.name} fainted!")
+            return False
         elif result == 'tie':
             self.hp -= 10
             other.hp -= 10
             print(f"{self.name} and {other.name} battled hard. It's a tie.")
+            return False
         elif result == 'win':
             other.hp = 0
             print(f"{self.name} won. Congratulations!")
-
+            print(f"{other.name} caught!")
+            return True
+        
     def __str__(self):
         return f"{self.name} ({self.primary_type}): {self.hp}/{self.max_hp}"
 

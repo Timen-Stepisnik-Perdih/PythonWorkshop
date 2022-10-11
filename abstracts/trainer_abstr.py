@@ -6,11 +6,16 @@ from pokeball_abstr import PokeballAbstr
 class TrainerAbstr:
     pokeballs: List[PokeballAbstr]
     money: int
+    name: str
+    
+    @abstractmethod
+    def __init__(self, name: str):
+        pass
 
     @abstractmethod
     def summon_pokemon(self, targetName: str) -> PokemonAbstr:
         pass
-        # for pokeball in self.pokeballs:
-        #     if pokeball.pokemon_inside.name == targetName:
-        #         return pokeball.summon_pokemon()
-        # return None
+    
+    @abstractmethod
+    def ready_pokeball(self) -> PokeballAbstr:
+        pass

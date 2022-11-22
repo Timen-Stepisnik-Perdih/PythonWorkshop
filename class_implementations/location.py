@@ -1,6 +1,7 @@
 import sys
 import random
-sys.path.insert(0, 'C:/Users/TimenStepisnikPerdih/Desktop/PythonWorkshop/PythonWorkshop/abstracts')
+import os
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "../abstracts"))
 from pokemon_abstr import PokemonAbstr
 from location_abstr import LocationAbstr
 from trainer_abstr import TrainerAbstr

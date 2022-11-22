@@ -1,6 +1,7 @@
 import sys
+import os
 from abstracts.pokeballType_abstr import PokeballTypeAbstr
-sys.path.insert(0, 'C:/Users/TimenStepisnikPerdih/Desktop/PythonWorkshop/PythonWorkshop/abstracts')
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "../abstracts"))
 from shop_abstr import ShopAbstr
 from pokeballType_abstr import PokeballTypeAbstr
 from trainer_abstr import TrainerAbstr

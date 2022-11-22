@@ -1,7 +1,8 @@
 import sys
 import random
 from tracemalloc import start
-sys.path.insert(0, 'C:/Users/TimenStepisnikPerdih/Desktop/PythonWorkshop/PythonWorkshop/abstracts')
+import os
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "../abstracts"))
 from pokemon_abstr import PokemonAbstr
 from trainer_abstr import TrainerAbstr
 from pokeball_abstr import PokeballAbstr
@@ -39,7 +40,7 @@ class Trainer(TrainerAbstr):
     def __str__(self):
         return_string = ""
         return_string += "Name: " + self.name + "\n"
-        return_string += "Money available: " + self.money + "\n"
+        return_string += "Money available: " + str(self.money) + "\n"
         return_string += "Pokeballs:\n"
         for pokeball in self.pokeballs:
             return_string += pokeball.__str__() + "\n"

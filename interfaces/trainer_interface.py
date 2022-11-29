@@ -5,9 +5,7 @@ from pokeball_interface import PokeballInterface
 class TrainerInterface(ABC):
     pokeballs: list[PokeballInterface]
     name: str
-    @abstractproperty
-    def experience(self): 
-        pass
+    experience: int
 
     @abstractmethod
     def summon_pokemon(self, pokemon_name: str) -> PokemonInterface:

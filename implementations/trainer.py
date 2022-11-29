@@ -1,10 +1,11 @@
 import sys
+import random
+from tracemalloc import start
 import os
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "../interfaces"))
-
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "../abstracts"))
+from pokemon_interface import PokemonInterface
 from trainer_interface import TrainerInterface
 from pokeball_interface import PokeballInterface
-from pokemon_interface import PokemonInterface
 
 class Trainer(TrainerInterface):
     pokeballs: list[PokeballInterface]
@@ -24,15 +25,20 @@ class Trainer(TrainerInterface):
                 return pokeball.get_pokemon()
         return None # Nimamo tega pokemona
 
+
     def add_pokeball(self, pokeball: PokeballInterface):
         self.pokeballs.append(pokeball)
 
     def throw_empty_pokeball(self, target_pokemon: PokemonInterface):
         for pokeball in self.pokeballs:
             if pokeball.is_empty():
+                if target_pokemon.hp > 0:
+                    print("Pokemon is not defeated")
+                    self.pokeballs.remove(pokeball)
+                    print("You lost a pokeball")
+                    return
                 pokeball.catch_pokemon(target_pokemon)
+                print("Caught " + target_pokemon.name)
                 return
+        print("No empty pokeballs")
 
-        print("No empty pokeball")
-
- 
